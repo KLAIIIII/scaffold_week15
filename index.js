@@ -1,4 +1,4 @@
-const express = require('express')
+const express =  require('express')
 const http = require('http')
 const app = express()
 const morgan = require('morgan')
@@ -7,14 +7,14 @@ const PORT = process.env.PORT || 4000
 const server = http.createServer(app)
 
 app.use(morgan('dev'))
-// static file: making public directory as static directory
+//Static file: making public directory as static directory
 app.use(express.static('public'))
 
-// set view pug template engine
-app.set('view','./views')
+//Set view pug template engine
+app.set('views','./views')
 app.set('view engine','pug')
 
-// register route:http://localhost:4000
+//Register route:http://localhost:4000/
 app.get('/',(req,res)=>{
     res.status(200).sendFile(__dirname + '/index.html')
 })
